@@ -142,6 +142,48 @@ Pay at Shop
       ↓
 Purchase Completed
 
+### Screenshot Gallery
+
+#### Customer Website
+
+<p align="center">
+  <img src="Documentation/Screenshots/01-homepage.png" width="48%" />
+  <img src="Documentation/Screenshots/02-product-list.png" width="48%" />
+</p>
+
+<p align="center">
+  <img src="Documentation/Screenshots/03-product-details.png" width="48%" />
+  <img src="Documentation/Screenshots/04-shopping-cart.png" width="48%" />
+</p>
+
+<p align="center">
+  <img src="Documentation/Screenshots/05-checkout.png" width="48%" />
+  <img src="Documentation/Screenshots/06-order-success.png" width="48%" />
+</p>
+
+<p align="center">
+  <img src="Documentation/Screenshots/07-about-us.png" width="48%" />
+  <img src="Documentation/Screenshots/08-contact-us.png" width="48%" />
+</p>
+
+#### Admin Panel
+
+<p align="center">
+  <img src="Documentation/Screenshots/09-admin-dashboard.png" width="48%" />
+  <img src="Documentation/Screenshots/10-admin-products.png" width="48%" />
+</p>
+
+<p align="center">
+  <img src="Documentation/Screenshots/11-admin-categories.png" width="48%" />
+  <img src="Documentation/Screenshots/12-admin-orders.png" width="48%" />
+</p>
+
+<p align="center">
+  <img src="Documentation/Screenshots/13-admin-order-details.png" width="48%" />
+</p>
+
+
+
 
 💳 Payment Method
 
