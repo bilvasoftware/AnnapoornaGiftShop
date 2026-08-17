@@ -144,9 +144,87 @@ Purchase Completed
 
 # 🖼️ Screenshots
 
-## 🏠 Homepage
+## 🏠 Customer Website
 
-![Homepage](Documentation/Screenshots/01-homepage.png)
+### Homepage
+
+![Homepage](Documentation/Screenshots/01-home-page.png)
+
+---
+
+### Shop Products
+
+![Shop Products](Documentation/Screenshots/02-shop-products.png)
+
+---
+
+### Product Details
+
+![Product Details](Documentation/Screenshots/03-product-details.png)
+
+---
+
+### Shopping Cart
+
+![Shopping Cart](Documentation/Screenshots/04-shopping-cart.png)
+
+---
+
+### Checkout & Reservation
+
+![Checkout & Reservation](Documentation/Screenshots/05-checkout-reservation.png)
+
+---
+
+### Reservation Token
+
+![Reservation Token](Documentation/Screenshots/06-order-token.png)
+
+---
+
+# 🛠️ Admin Panel
+
+### Admin Dashboard
+
+![Admin Dashboard](Documentation/Screenshots/07-admin-dashboard.png)
+
+---
+
+### Admin Products
+
+![Admin Products](Documentation/Screenshots/08-admin-products.png)
+
+---
+
+### Product Management
+
+![Product Management](Documentation/Screenshots/09-product-management.png)
+
+---
+
+### Admin Orders
+
+![Admin Orders](Documentation/Screenshots/10-admin-orders.png)
+
+---
+
+### Order Details
+
+![Order Details](Documentation/Screenshots/11-order-details.png)
+
+---
+
+### Admin Management
+
+![Admin Management](Documentation/Screenshots/12-admin-management.png)
+
+---
+
+### Shop Settings
+
+![Shop Settings](Documentation/Screenshots/13-shop-settings.png)
+
+---
 
 ---
 
