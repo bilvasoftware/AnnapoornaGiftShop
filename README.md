@@ -154,7 +154,7 @@ Purchase Completed
 ### 🏠 Homepage
 
 <p align="center">
-  <img src="Documentation/Screenshots/01-home-page.png" alt="Annapoorna Wholesale Gift Shop Homepage" width="900">
+  <img src="GiftShop/Documentation/01-home-page.png" alt="Annapoorna Wholesale Gift Shop Homepage" width="900">
 </p>
 
 ---
@@ -162,7 +162,7 @@ Purchase Completed
 ### 🛍️ Shop Products
 
 <p align="center">
-  <img src="Documentation/Screenshots/02-shop-products.png" alt="Shop Products Page" width="900">
+  <img src="GiftShop/Documentation/Screenshots/02-shop-products.png" alt="Shop Products Page" width="900">
 </p>
 
 ---
