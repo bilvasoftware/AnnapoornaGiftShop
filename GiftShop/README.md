@@ -151,23 +151,23 @@ Purchase Completed
 
 ## 🏠 Customer Website
 
-### Homepage
+### 🏠 Homepage
 
 <p align="center">
-  <img src="Documentation/Screenshots/01-homepage.png" alt="Annapoorna Wholesale Gift Shop Homepage" width="900">
+  <img src="Documentation/Screenshots/01-home-page.png" alt="Annapoorna Wholesale Gift Shop Homepage" width="900">
 </p>
 
 ---
 
-### Product Listing
+### 🛍️ Shop Products
 
 <p align="center">
-  <img src="Documentation/Screenshots/02-product-list.png" alt="Product Listing Page" width="900">
+  <img src="Documentation/Screenshots/02-shop-products.png" alt="Shop Products Page" width="900">
 </p>
 
 ---
 
-### Product Details
+### 📦 Product Details
 
 <p align="center">
   <img src="Documentation/Screenshots/03-product-details.png" alt="Product Details Page" width="900">
@@ -175,7 +175,7 @@ Purchase Completed
 
 ---
 
-### Shopping Cart
+### 🛒 Shopping Cart
 
 <p align="center">
   <img src="Documentation/Screenshots/04-shopping-cart.png" alt="Shopping Cart Page" width="900">
@@ -183,79 +183,80 @@ Purchase Completed
 
 ---
 
-### Checkout & Reservation
+### 🧾 Checkout & Reservation
 
 <p align="center">
-  <img src="Documentation/Screenshots/05-checkout.png" alt="Checkout and Reservation Page" width="900">
+  <img src="Documentation/Screenshots/05-checkout-reservation.png" alt="Checkout and Reservation Page" width="900">
 </p>
 
 ---
 
-### Reservation Confirmation
+### 🎟️ Order Token
 
 <p align="center">
-  <img src="Documentation/Screenshots/06-order-success.png" alt="Reservation Confirmation and Token Number" width="900">
-</p>
-
----
-
-### About Us
-
-<p align="center">
-  <img src="Documentation/Screenshots/07-about-us.png" alt="About Us Page" width="900">
-</p>
-
----
-
-### Contact Us
-
-<p align="center">
-  <img src="Documentation/Screenshots/08-contact-us.png" alt="Contact Us Page" width="900">
+  <img src="Documentation/Screenshots/06-order-token.png" alt="Order Token and Reservation Confirmation" width="900">
 </p>
 
 ---
 
 # 🛠️ Admin Panel
 
-### Admin Dashboard
+### 📊 Admin Dashboard
 
 <p align="center">
-  <img src="Documentation/Screenshots/09-admin-dashboard.png" alt="Admin Dashboard" width="900">
+  <img src="Documentation/Screenshots/07-admin-dashboard.png" alt="Admin Dashboard" width="900">
 </p>
 
 ---
 
-### Product Management
+### 📦 Admin Products
 
 <p align="center">
-  <img src="Documentation/Screenshots/10-admin-products.png" alt="Admin Product Management" width="900">
+  <img src="Documentation/Screenshots/08-admin-products.png" alt="Admin Products Management" width="900">
 </p>
 
 ---
 
-### Category Management
+### 🛠️ Product Management
 
 <p align="center">
-  <img src="Documentation/Screenshots/11-admin-categories.png" alt="Admin Category Management" width="900">
+  <img src="Documentation/Screenshots/09-product-management.png" alt="Product Management" width="900">
 </p>
 
 ---
 
-### Order Management
+### 📋 Admin Orders
 
 <p align="center">
-  <img src="Documentation/Screenshots/12-admin-orders.png" alt="Admin Order Management" width="900">
+  <img src="Documentation/Screenshots/10-admin-orders.png" alt="Admin Orders" width="900">
 </p>
 
 ---
 
-### Order Details
+### 🧾 Order Details
 
 <p align="center">
-  <img src="Documentation/Screenshots/13-admin-order-details.png" alt="Admin Order Details" width="900">
+  <img src="Documentation/Screenshots/11-order-details.png" alt="Order Details" width="900">
 </p>
 
 ---
+
+### ⚙️ Admin Management
+
+<p align="center">
+  <img src="Documentation/Screenshots/12-admin-management.png" alt="Admin Management" width="900">
+</p>
+
+---
+
+### 🏪 Shop Settings
+
+<p align="center">
+  <img src="Documentation/Screenshots/13-shop-settings.png" alt="Shop Settings" width="900">
+</p>
+
+---
+
 
 # 💳 Payment Method
 
