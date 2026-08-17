@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="GiftShop/Documentation/Screenshots/Banner.png" alt="Annapoorna Wholesale Gift Shop Banner" width="100%">
+  <img src="GiftShop\Documentation\Screenshots\banner.png" alt="Annapoorna Wholesale Gift Shop Banner" width="100%">
 </p>
 
 # 🎁 Annapoorna Wholesale Gift Shop
@@ -194,7 +194,7 @@ Purchase Completed
 ### 🎟️ Order Token
 
 <p align="center">
-  <img src="Documentation/Screenshots/06-order-token.png" alt="Order Token and Reservation Confirmation" width="900">
+  <img src="GiftShop/Documentation/Screenshots/06-order-token.png" alt="Order Token and Reservation Confirmation" width="900">
 </p>
 
 ---
