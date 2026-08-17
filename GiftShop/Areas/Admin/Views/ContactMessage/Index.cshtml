@@ -1,0 +1,150 @@
+﻿@model IEnumerable<GiftShop.Models.ContactMessage>
+
+@{
+    ViewData["Title"] = "Contact Messages";
+}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2 class="fw-bold">
+            Contact Messages
+        </h2>
+
+        @if (TempData["Success"] != null)
+        {
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: '@TempData["Success"]',
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+
+                });
+            </script>
+        }
+
+        <span class="badge bg-primary fs-6">
+            Total : @Model.Count()
+        </span>
+
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+
+            No contact messages found.
+
+        </div>
+    }
+    else
+    {
+        <div class="card shadow">
+
+            <div class="card-body">
+
+                <div class="table-responsive">
+
+                    <table class="table table-bordered table-hover align-middle">
+
+                        <thead class="table-dark">
+
+                            <tr>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Message</th>
+                                <th width="100">Action</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @item.CreatedDate.ToString("dd-MM-yyyy hh:mm tt")
+                                    </td>
+
+                                    <td>
+                                        @item.Name
+                                    </td>
+
+                                    <td>
+                                        @item.Email
+                                    </td>
+
+                                    <td>
+                                        @item.Phone
+                                    </td>
+
+                                    <td style="max-width:350px; white-space:normal;">
+                                        @item.Message
+                                    </td>
+
+                                    <td>
+
+                                        <button class="btn btn-sm btn-danger"
+                                                onclick="deleteMessage(@item.ContactMessageId)">
+
+                                            <i class="bi bi-trash"></i>
+
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    }
+
+</div>
+
+
+@section Scripts{
+
+    <script>
+
+        function deleteMessage(id)
+        {
+            Swal.fire({
+                title: 'Delete Message?',
+                text: "This action cannot be undone.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Yes, Delete',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+
+                if (result.isConfirmed)
+                {
+                    window.location.href = '/Admin/ContactMessage/Delete/' + id;
+                }
+
+            });
+        }
+
+    </script>
+
+}

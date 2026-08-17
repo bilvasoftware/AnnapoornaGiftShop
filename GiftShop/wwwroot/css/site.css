@@ -1,0 +1,600 @@
+body {
+    background: #FAF8F5;
+    color: #333;
+    font-family: 'Segoe UI',sans-serif;
+}
+
+.custom-navbar {
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+
+.navbar-brand {
+    color: #8B5E3C !important;
+    font-size: 28px;
+}
+
+.nav-link {
+    color: #333 !important;
+    font-weight: 500;
+    margin-left: 18px;
+}
+
+    .nav-link:hover {
+        color: #8B5E3C !important;
+    }
+
+.footer {
+    background: #fff;
+    border-top: 1px solid #ececec;
+}
+
+
+.hero {
+    padding: 90px 0;
+}
+
+.hero-image {
+    max-height: 450px;
+}
+
+.btn-primary {
+    background: #8B5E3C;
+    border: none;
+}
+
+    .btn-primary:hover {
+        background: #70492e;
+    }
+
+.category-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 25px;
+    text-align: center;
+    height: 100%;
+    transition: .35s;
+    box-shadow: 0 8px 25px rgba(0,0,0,.08);
+}
+
+    .category-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0,0,0,.12);
+    }
+
+.category-image {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.category-card h4 {
+    font-weight: 700;
+    color: #8B5E3C;
+}
+
+.category-card p {
+    color: #666;
+    font-size: 15px;
+}
+
+    .category-card h5 {
+        margin-top: 15px;
+    }
+
+    .category-card:hover {
+        transform: translateY(-8px);
+    }
+
+/* ===========================
+   Hero Carousel Controls
+=========================== */
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 70px;
+    opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-image: none;
+    width: 55px;
+    height: 55px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .carousel-control-prev-icon::after {
+        content: "❮";
+        font-size: 28px;
+        color: #000;
+        font-weight: bold;
+    }
+
+    .carousel-control-next-icon::after {
+        content: "❯";
+        font-size: 28px;
+        color: #000;
+        font-weight: bold;
+    }
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1;
+}
+
+.gallery-thumb {
+    transition: .3s;
+}
+
+    .gallery-thumb:hover {
+        transform: scale(1.05);
+    }
+
+.active-thumb {
+    border: 3px solid #8B5E3C !important;
+    box-shadow: 0 0 10px rgba(139,94,60,.35);
+}
+
+/* Footer */
+
+.footer {
+    background: #1f1f1f;
+    color: #fff;
+}
+
+.footer-link {
+    color: #ddd;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    transition: .3s;
+}
+
+    .footer-link:hover {
+        color: #d4a373;
+        padding-left: 6px;
+    }
+
+.footer ul {
+    padding-left: 0;
+}
+
+.footer li {
+    list-style: none;
+    margin-bottom: 8px;
+}
+
+.footer i {
+    transition: .3s;
+}
+
+.footer a:hover i {
+    color: #d4a373;
+}
+
+/* =========================================================
+   CONTACT PAGE
+   ========================================================= */
+
+.contact-section {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+/* ================= SHOP INFORMATION ================= */
+
+.contact-info-card,
+.contact-form-card {
+    background: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+}
+
+
+/* Header */
+
+.contact-card-header,
+.form-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 10px;
+}
+
+    .contact-card-header h3,
+    .form-heading h3 {
+        font-weight: 700;
+        color: #292929;
+    }
+
+    .contact-card-header p,
+    .form-heading p {
+        color: #777;
+        font-size: 14px;
+    }
+
+
+/* Main Icons */
+
+.contact-icon-main,
+.form-icon {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #9a693f;
+    color: white;
+    font-size: 24px;
+}
+
+
+/* Information Items */
+
+.contact-info-item {
+    display: flex;
+    gap: 15px;
+    padding: 18px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.contact-info-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.address-icon {
+    background: #fff0f0;
+    color: #e63946;
+}
+
+.phone-icon {
+    background: #edf9f1;
+    color: #16834b;
+}
+
+.email-icon {
+    background: #eef4ff;
+    color: #3366cc;
+}
+
+.time-icon {
+    background: #fff7e6;
+    color: #e09a00;
+}
+
+.contact-info-item h6 {
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: #333;
+}
+
+.contact-info-item p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.contact-value {
+    color: #9a693f;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+    .contact-value:hover {
+        text-decoration: underline;
+    }
+
+
+/* Small Buttons */
+
+.contact-small-btn,
+.contact-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    border-radius: 7px;
+    padding: 7px 11px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.contact-small-btn {
+    background: #f4f1ee;
+    color: #8b5e38;
+}
+
+    .contact-small-btn:hover {
+        background: #9a693f;
+        color: white;
+    }
+
+
+/* Call + WhatsApp */
+
+.call-btn {
+    background: #edf9f1;
+    color: #16834b;
+}
+
+    .call-btn:hover {
+        background: #16834b;
+        color: white;
+    }
+
+.whatsapp-btn {
+    background: #e9f8ef;
+    color: #16834b;
+}
+
+    .whatsapp-btn:hover {
+        background: #16834b;
+        color: white;
+    }
+
+
+/* Welcome */
+
+.contact-welcome {
+    margin-top: 20px;
+    padding: 13px 15px;
+    border-radius: 10px;
+    background: #faf6f2;
+    color: #8b5e38;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+    .contact-welcome i {
+        margin-right: 7px;
+    }
+
+
+/* ================= FORM ================= */
+
+.contact-label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+}
+
+    .contact-label i {
+        color: #9a693f;
+        margin-right: 5px;
+    }
+
+.contact-input {
+    border: 1px solid #dddddd;
+    border-radius: 9px;
+    padding: 11px 13px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+    .contact-input:focus {
+        border-color: #9a693f;
+        box-shadow: 0 0 0 3px rgba(154, 105, 63, 0.12);
+    }
+
+    .contact-input::placeholder {
+        color: #aaa;
+    }
+
+
+/* Submit Button */
+
+.contact-submit-btn {
+    width: 100%;
+    border: none;
+    border-radius: 9px;
+    padding: 13px 20px;
+    background: #9a693f;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+    .contact-submit-btn:hover {
+        background: #7e522f;
+        transform: translateY(-1px);
+        box-shadow: 0 5px 15px rgba(126, 82, 47, 0.25);
+    }
+
+
+/* Security Note */
+
+.form-note {
+    text-align: center;
+    margin-top: 14px;
+    font-size: 12px;
+    color: #888;
+}
+
+    .form-note i {
+        color: #16834b;
+        margin-right: 4px;
+    }
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 767px) {
+
+    .contact-info-card,
+    .contact-form-card {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .contact-card-header,
+    .form-heading {
+        align-items: flex-start;
+    }
+
+    .contact-icon-main,
+    .form-icon {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        font-size: 20px;
+    }
+}
+
+
+/* =========================================================
+   FIND US / GOOGLE MAPS
+   ========================================================= */
+
+.find-us-section {
+    max-width: 1100px;
+    margin: 70px auto 0;
+    padding: 0 15px;
+}
+
+.find-us-header {
+    margin-bottom: 25px;
+}
+
+.find-us-icon {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: #f5eee8;
+    color: #9a693f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.find-us-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #292929;
+    margin-bottom: 8px;
+}
+
+.find-us-header p {
+    color: #777;
+    margin-bottom: 0;
+    font-size: 16px;
+}
+
+.find-us-card {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eeeeee;
+}
+
+.find-us-map-placeholder {
+    min-height: 390px;
+    background: linear-gradient( rgba(250, 248, 245, 0.92), rgba(250, 248, 245, 0.92) ), radial-gradient( circle at 20% 30%, #eadfd5 0, transparent 30% ), radial-gradient( circle at 80% 70%, #e8ddd3 0, transparent 30% );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.map-content {
+    max-width: 550px;
+}
+
+.map-pin {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #9a693f;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    box-shadow: 0 10px 25px rgba(154, 105, 63, 0.25);
+}
+
+.map-content h4 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #292929;
+    margin-bottom: 10px;
+}
+
+.map-content p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.find-us-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #9a693f;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 9px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+    .find-us-btn:hover {
+        background: #7e522f;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(126, 82, 47, 0.25);
+    }
+
+@media (max-width: 767px) {
+
+    .find-us-section {
+        margin-top: 50px;
+    }
+
+    .find-us-header h2 {
+        font-size: 27px;
+    }
+
+    .find-us-map-placeholder {
+        min-height: 330px;
+        padding: 30px 15px;
+    }
+
+    .map-pin {
+        width: 65px;
+        height: 65px;
+        font-size: 28px;
+    }
+
+    .map-content h4 {
+        font-size: 20px;
+    }
+}

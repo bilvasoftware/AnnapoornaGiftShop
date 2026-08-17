@@ -1,0 +1,115 @@
+﻿@model GiftShop.Areas.Admin.ViewModels.BannerViewModel
+
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Add Banner";
+}
+
+<div class="card shadow-sm border-0">
+
+    <div class="card-header bg-primary text-white">
+        <h4>Add Banner</h4>
+    </div>
+
+    <div class="card-body">
+
+        <form asp-action="Create"
+              method="post"
+              enctype="multipart/form-data">
+
+            @Html.AntiForgeryToken()
+
+            <div class="mb-3">
+
+                <label asp-for="Title" class="form-label"></label>
+
+                <input asp-for="Title" class="form-control" />
+
+                <span asp-validation-for="Title" class="text-danger"></span>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label asp-for="SubTitle" class="form-label"></label>
+
+                <textarea asp-for="SubTitle"
+                          class="form-control"
+                          rows="2"></textarea>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label asp-for="ButtonText" class="form-label"></label>
+
+                <input asp-for="ButtonText"
+                       class="form-control" />
+
+            </div>
+
+            <div class="mb-3">
+
+                <label asp-for="ButtonLink" class="form-label"></label>
+
+                <input asp-for="ButtonLink"
+                       class="form-control" />
+
+            </div>
+
+            <div class="mb-3">
+
+                <label asp-for="DisplayOrder" class="form-label"></label>
+
+                <input asp-for="DisplayOrder"
+                       class="form-control" />
+
+            </div>
+
+            <div class="mb-3">
+
+                <label asp-for="ImageFile" class="form-label"></label>
+
+                <input asp-for="ImageFile"
+                       type="file"
+                       class="form-control"
+                       accept="image/*" />
+
+            </div>
+
+            <div class="form-check mb-4">
+
+                <input asp-for="IsActive"
+                       class="form-check-input" />
+
+                <label asp-for="IsActive"
+                       class="form-check-label"></label>
+
+            </div>
+
+            <button type="submit"
+                    class="btn btn-success">
+
+                <i class="fa-solid fa-floppy-disk"></i>
+
+                Save Banner
+
+            </button>
+
+            <a asp-action="Index"
+               class="btn btn-secondary">
+
+                Cancel
+
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

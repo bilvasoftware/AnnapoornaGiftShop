@@ -1,0 +1,556 @@
+﻿@using GiftShop.Services
+@inject IShopSettingService ShopSettings
+
+@{
+    ViewData["Title"] = "About Us";
+
+    var shop = await ShopSettings.GetAsync();
+}
+
+<div class="container py-5">
+
+    <!-- ========================= -->
+    <!-- ABOUT SHOP -->
+    <!-- ========================= -->
+
+    <div class="row align-items-center g-5">
+
+        <!-- Image -->
+
+        <div class="col-lg-6">
+
+            <img src="~/images/about.png"
+                 class="img-fluid rounded shadow"
+                 alt="@shop.ShopName" />
+
+        </div>
+
+
+        <!-- Content -->
+
+        <div class="col-lg-6">
+
+            <h1 class="fw-bold mb-3">
+                About @shop.ShopName
+            </h1>
+
+            <h4 class="text-warning fw-bold mb-4">
+                Serving customers since 2005
+            </h4>
+
+            <p class="lead">
+                @shop.ShopName has been serving customers since
+                <strong>2005</strong>, providing quality gifts and
+                memorable products for every occasion and celebration.
+            </p>
+
+            <p>
+                We offer a wide range of gifts and seasonal collections,
+                with our products regularly updated to bring you
+                <strong>new and attractive gift collections</strong>.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- WHY CHOOSE US -->
+    <!-- ========================= -->
+
+    <section class="mt-5 pt-4">
+
+        <div class="text-center mb-5">
+
+            <h2 class="fw-bold">
+                Why Choose Us?
+            </h2>
+
+            <p class="text-muted">
+                We believe every gift should be special, affordable,
+                beautifully packed and delivered with care.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <!-- Gifts for Every Occasion -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+
+                    <div class="card-body p-4">
+
+                        <div class="fs-1 mb-3">
+                            🎁
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Gifts for Every Occasion
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            We provide gifts suitable for birthdays,
+                            anniversaries, festivals, celebrations
+                            and special occasions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Chocolate Gifts -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+
+                    <div class="card-body p-4">
+
+                        <div class="fs-1 mb-3">
+                            🍫
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Chocolate Gifts
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            We also offer chocolates and sweet gifts
+                            that make every celebration more special.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Free Gift Packing -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+
+                    <div class="card-body p-4">
+
+                        <div class="fs-1 mb-3">
+                            🎀
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Free Gift Packing
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            Gift packing is provided
+                            <strong>free of charge</strong>
+                            for our customers.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Quick Gift Packing -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+
+                    <div class="card-body p-4">
+
+                        <div class="fs-1 mb-3">
+                            📦
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Quick Gift Packing
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            We provide fast and convenient packing
+                            so your gift is ready when you need it.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Neat Professional Packing -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+
+                    <div class="card-body p-4">
+
+                        <div class="fs-1 mb-3">
+                            ✨
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Neat & Professional Packing
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            Every gift is packed carefully
+                            and professionally.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Affordable Prices -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+
+                    <div class="card-body p-4">
+
+                        <div class="fs-1 mb-3">
+                            💰
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Affordable Prices
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            We offer quality gifts at affordable
+                            and reasonable prices.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Happy Customers -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+
+                    <div class="card-body p-4">
+
+                        <div class="fs-1 mb-3">
+                            ❤️
+                        </div>
+
+                        <h5 class="fw-bold">
+                            1,000+ Happy Customers
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            We are proud to have served
+                            <strong>1,000+ happy customers</strong>.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Customer Service -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+
+                    <div class="card-body p-4">
+
+                        <div class="fs-1 mb-3">
+                            🤝
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Good Customer Service
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            We believe in treating every customer
+                            with care and providing friendly service.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- New Collections -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+
+                    <div class="card-body p-4">
+
+                        <div class="fs-1 mb-3">
+                            🛍️
+                        </div>
+
+                        <h5 class="fw-bold">
+                            New Collections
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            Our seasonal and occasion-based products
+                            are regularly updated, and we continuously
+                            bring in new gift collections.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- OUR COMMITMENT -->
+    <!-- ========================= -->
+
+    <section class="mt-5 pt-5">
+
+        <div class="card border-0 shadow-sm rounded-4">
+
+            <div class="card-body p-5 text-center">
+
+                <h2 class="fw-bold mb-4">
+                    Our Commitment
+                </h2>
+
+                <p class="lead mb-4">
+
+                    Our goal is to make gift shopping
+                    <strong>easy, affordable and enjoyable</strong>.
+
+                </p>
+
+                <p class="mb-4">
+
+                    Whether you are looking for a small gift,
+                    a festival collection, a sweet surprise or
+                    a beautifully packed present, we are here
+                    to help you find something special.
+
+                </p>
+
+                <h5 class="fw-bold text-warning">
+
+                    From our shop to your loved ones —
+                    every gift is packed with care. ❤️
+
+                </h5>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- SHOP STATISTICS -->
+    <!-- ========================= -->
+
+    <div class="mt-5 pt-4">
+
+        <div class="row text-center g-4">
+
+            <!-- Products -->
+
+            <div class="col-md-3">
+
+                <div class="p-3">
+
+                    <h2 class="text-warning fw-bold">
+                        @ViewBag.TotalProducts+
+                    </h2>
+
+                    <p>
+                        Products
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Customers -->
+
+            <div class="col-md-3">
+
+                <div class="p-3">
+
+                    <h2 class="text-warning fw-bold">
+                        @ViewBag.TotalCustomers+
+                    </h2>
+
+                    <p>
+                        Happy Customers
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Categories -->
+
+            <div class="col-md-3">
+
+                <div class="p-3">
+
+                    <h2 class="text-warning fw-bold">
+                        @ViewBag.TotalCategories+
+                    </h2>
+
+                    <p>
+                        Categories
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Support -->
+
+            <div class="col-md-3">
+
+                <div class="p-3">
+
+                    <h2 class="text-warning fw-bold">
+                        24/7
+                    </h2>
+
+                    <p>
+                        Customer Support
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- CONTACT INFORMATION -->
+    <!-- ========================= -->
+
+    <div class="row mt-5 pt-4 text-center">
+
+        <div class="col-12">
+
+            <h3 class="fw-bold mb-4">
+                Get in Touch
+            </h3>
+
+        </div>
+
+
+        @if (!string.IsNullOrWhiteSpace(shop.Phone))
+        {
+            <div class="col-md-4 mb-3">
+
+                <i class="bi bi-telephone-fill text-success fs-4"></i>
+
+                <p class="mt-2 mb-0">
+                    <strong>Phone</strong>
+                </p>
+
+                <a href="tel:@shop.Phone"
+                   class="text-decoration-none">
+
+                    @shop.Phone
+
+                </a>
+
+            </div>
+        }
+
+
+        @if (!string.IsNullOrWhiteSpace(shop.Email))
+        {
+            <div class="col-md-4 mb-3">
+
+                <i class="bi bi-envelope-fill text-primary fs-4"></i>
+
+                <p class="mt-2 mb-0">
+                    <strong>Email</strong>
+                </p>
+
+                <a href="mailto:@shop.Email"
+                   class="text-decoration-none">
+
+                    @shop.Email
+
+                </a>
+
+            </div>
+        }
+
+
+        @if (!string.IsNullOrWhiteSpace(shop.Address))
+        {
+            <div class="col-md-4 mb-3">
+
+                <i class="bi bi-geo-alt-fill text-danger fs-4"></i>
+
+                <p class="mt-2 mb-0">
+                    <strong>Location</strong>
+                </p>
+
+                <span>
+
+                    @shop.Address
+
+                    @if (!string.IsNullOrWhiteSpace(shop.City))
+                    {
+                        <span>
+                            , @shop.City
+                        </span>
+                    }
+
+                </span>
+
+            </div>
+        }
+
+    </div>
+
+</div>

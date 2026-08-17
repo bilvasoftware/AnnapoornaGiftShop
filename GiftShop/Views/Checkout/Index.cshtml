@@ -1,0 +1,162 @@
+﻿@model GiftShop.ViewModels.CheckoutViewModel
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<div class="container py-5">
+
+    <h2 class="mb-4 fw-bold">
+        Checkout
+    </h2>
+
+    <form asp-action="PlaceOrder" method="post">
+
+        <div class="row">
+
+            <!-- Customer Details -->
+
+            <div class="col-lg-7">
+
+                <div class="card shadow-sm">
+
+                    <div class="card-header">
+                        Customer Details
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="mb-3">
+
+                            <label asp-for="Customer.FullName" class="form-label"></label>
+
+                            <input asp-for="Customer.FullName" class="form-control" />
+
+                            <span asp-validation-for="Customer.FullName" class="text-danger"></span>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label asp-for="Customer.MobileNumber" class="form-label"></label>
+
+                            <input asp-for="Customer.MobileNumber" class="form-control" />
+
+                            <span asp-validation-for="Customer.MobileNumber" class="text-danger"></span>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label asp-for="Customer.Email" class="form-label"></label>
+
+                            <input asp-for="Customer.Email" class="form-control" />
+
+                            <span asp-validation-for="Customer.Email" class="text-danger"></span>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label asp-for="Customer.Address" class="form-label"></label>
+
+                            <textarea asp-for="Customer.Address" class="form-control"></textarea>
+
+                            <span asp-validation-for="Customer.Address" class="text-danger"></span>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+
+                                <label asp-for="Customer.City" class="form-label"></label>
+
+                                <input asp-for="Customer.City" class="form-control" />
+
+                                <span asp-validation-for="Customer.City" class="text-danger"></span>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <label asp-for="Customer.Pincode" class="form-label"></label>
+
+                                <input asp-for="Customer.Pincode" class="form-control" />
+
+                                <span asp-validation-for="Customer.Pincode" class="text-danger"></span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Order Summary -->
+
+            <div class="col-lg-5">
+
+                <div class="card shadow-sm">
+
+                    <div class="card-header">
+                        Order Summary
+                    </div>
+
+                    <div class="card-body">
+
+                        <p>
+                            Items :
+                            <strong>@Model.Cart.Items.Count</strong>
+                        </p>
+
+                        <p>
+                            Sub Total :
+                            <strong>₹@Model.Cart.SubTotal</strong>
+                        </p>
+
+                        <p>
+                            GST :
+                            <strong>₹@Model.Cart.GST</strong>
+                        </p>
+
+                        <p>
+                            Shipping :
+                            <strong>₹@Model.Cart.Shipping</strong>
+                        </p>
+
+                        <hr />
+
+                        <h4>
+                            Grand Total :
+                            ₹@Model.Cart.GrandTotal
+                        </h4>
+
+                        <button type="submit"
+                                class="btn btn-success w-100 mt-3">
+
+                            Place Order
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

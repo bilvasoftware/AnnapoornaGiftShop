@@ -1,0 +1,58 @@
+﻿@model GiftShop.ViewModels.HomeViewModel
+
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <h1 class="fw-bold">
+            Shop By Categories
+        </h1>
+
+        <p class="text-muted">
+            Choose a category to explore our gift collection.
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        @foreach (var category in Model.Categories)
+        {
+            <div class="col-lg-3 col-md-4 col-sm-6">
+
+                <div class="card border-0 shadow-sm rounded-4 h-100 text-center">
+
+                    <img src="~/images/categories/@category.CategoryImage"
+                         class="card-img-top p-3"
+                         style="height:220px;object-fit:contain;"
+                         alt="@category.CategoryName" />
+
+                    <div class="card-body">
+
+                        <h5 class="fw-bold">
+                            @category.CategoryName
+                        </h5>
+
+                        <a asp-controller="Home"
+                           asp-action="Category"
+                           asp-route-id="@category.CategoryId"
+                           class="btn btn-primary mt-3">
+
+                            View Products
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</section>

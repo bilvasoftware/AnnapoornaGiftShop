@@ -1,0 +1,310 @@
+﻿@model GiftShop.ViewModels.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="row g-4">
+
+    <!-- Products -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card shadow border-0 bg-primary text-white">
+            <div class="card-body">
+                <h6>Total Products</h6>
+                <h2>@Model.TotalProducts</h2>
+                <i class="bi bi-box fs-1 float-end"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card shadow border-0 bg-success text-white">
+            <div class="card-body">
+                <h6>Total Categories</h6>
+                <h2>@Model.TotalCategories</h2>
+                <i class="bi bi-tags-fill fs-1 float-end"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Brands -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card shadow border-0 bg-warning text-dark">
+            <div class="card-body">
+                <h6>Total Brands</h6>
+                <h2>@Model.TotalBrands</h2>
+                <i class="bi bi-award-fill fs-1 float-end"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banners -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card shadow border-0 bg-info text-white">
+            <div class="card-body">
+                <h6>Total Banners</h6>
+                <h2>@Model.TotalBanners</h2>
+                <i class="bi bi-images fs-1 float-end"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customers -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card shadow border-0 bg-secondary text-white">
+            <div class="card-body">
+                <h6>Total Customers</h6>
+                <h2>@Model.TotalCustomers</h2>
+                <i class="bi bi-people-fill fs-1 float-end"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Orders -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card shadow border-0 bg-danger text-white">
+            <div class="card-body">
+                <h6>Total Orders</h6>
+                <h2>@Model.TotalOrders</h2>
+                <i class="bi bi-cart-check-fill fs-1 float-end"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Messages -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card shadow border-0 bg-dark text-white">
+            <div class="card-body">
+                <h6>Contact Messages</h6>
+                <h2>@Model.TotalContactMessages</h2>
+                <i class="bi bi-chat-dots-fill fs-1 float-end"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Daily Sales -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card shadow border-0"
+             style="background:#6f42c1;color:white;">
+
+            <div class="card-body">
+
+                <h6>Daily Sales</h6>
+
+                <h2>
+                    ₹@Model.DailySales.ToString("N2")
+                </h2>
+
+                <i class="bi bi-currency-rupee fs-1 float-end"></i>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- WEBSITE ANALYTICS -->
+
+<div class="row g-4 mt-2">
+
+    <!-- Total Visitors -->
+    <div class="col-xl-3 col-md-6">
+
+        <div class="card shadow border-0 bg-primary text-white">
+
+            <div class="card-body">
+
+                <h6>Total Visitors</h6>
+
+                <h2>@Model.TotalVisitors</h2>
+
+                <i class="bi bi-people-fill fs-1 float-end"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Today's Visitors -->
+    <div class="col-xl-3 col-md-6">
+
+        <div class="card shadow border-0 bg-success text-white">
+
+            <div class="card-body">
+
+                <h6>Today's Visitors</h6>
+
+                <h2>@Model.TodayVisitors</h2>
+
+                <i class="bi bi-person-check-fill fs-1 float-end"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- This Month -->
+    <div class="col-xl-3 col-md-6">
+
+        <div class="card shadow border-0 bg-info text-white">
+
+            <div class="card-body">
+
+                <h6>This Month</h6>
+
+                <h2>@Model.ThisMonthVisitors</h2>
+
+                <i class="bi bi-calendar-month-fill fs-1 float-end"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Page Views -->
+    <div class="col-xl-3 col-md-6">
+
+        <div class="card shadow border-0 bg-dark text-white">
+
+            <div class="card-body">
+
+                <h6>Total Page Views</h6>
+
+                <h2>@Model.TotalPageViews</h2>
+
+                <i class="bi bi-eye-fill fs-1 float-end"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- VISITOR CHART -->
+
+<div class="row mt-4">
+
+    <div class="col-lg-8">
+
+        <div class="card shadow border-0">
+
+            <div class="card-header bg-white">
+
+                <h5 class="mb-0">
+
+                    <i class="bi bi-graph-up"></i>
+
+                    Website Visitors - Last 7 Days
+
+                </h5>
+
+            </div>
+
+            <div class="card-body"
+                 style="height:350px;">
+
+                <canvas id="visitorChart"></canvas>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+
+        const visitorLabels = [
+            @foreach (var item in Model.DailyVisitors)
+            {
+                    @: '@item.Date',
+            }
+        ];
+
+        const visitorData = [
+            @foreach (var item in Model.DailyVisitors)
+            {
+                    @: @item.Visitors,
+            }
+        ];
+
+        const ctx =
+            document.getElementById('visitorChart');
+
+        new Chart(ctx, {
+
+            type: 'line',
+
+            data: {
+
+                labels: visitorLabels,
+
+                datasets: [{
+
+                    label: 'Visitors',
+
+                    data: visitorData,
+
+                    tension: 0.4,
+
+                    fill: true,
+
+                    borderWidth: 2,
+
+                    pointRadius: 4
+
+                }]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                maintainAspectRatio: false,
+
+                plugins: {
+
+                    legend: {
+                        display: true
+                    }
+
+                },
+
+                scales: {
+
+                    y: {
+
+                        beginAtZero: true,
+
+                        ticks: {
+                            precision: 0
+                        }
+
+                    }
+
+                }
+
+            }
+
+        });
+
+    </script>
+}

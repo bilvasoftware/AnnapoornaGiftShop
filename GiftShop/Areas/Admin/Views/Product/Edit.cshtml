@@ -1,0 +1,534 @@
+﻿@model GiftShop.Areas.Admin.ViewModels.ProductViewModel
+
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Edit Product";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h3>
+        <i class="fa-solid fa-pen-to-square me-2"></i>
+        Edit Product
+    </h3>
+
+    <a asp-action="Index"
+       class="btn btn-outline-secondary">
+
+        <i class="fa-solid fa-arrow-left"></i>
+        Back
+
+    </a>
+
+</div>
+
+
+<form asp-action="Edit"
+      method="post"
+      enctype="multipart/form-data">
+
+    @Html.AntiForgeryToken()
+
+    <input asp-for="ProductId" type="hidden" />
+
+
+    <div class="row">
+
+        <!-- ========================= -->
+        <!-- LEFT SIDE -->
+        <!-- ========================= -->
+
+        <div class="col-lg-8">
+
+            <!-- PRODUCT INFORMATION -->
+
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+
+                <div class="card-header bg-white">
+
+                    <h5 class="mb-0">
+                        <i class="fa-solid fa-box me-2"></i>
+                        Product Information
+                    </h5>
+
+                </div>
+
+
+                <div class="card-body">
+
+                    <!-- PRODUCT NAME -->
+
+                    <div class="mb-3">
+
+                        <label asp-for="ProductName"
+                               class="form-label fw-semibold">
+                        </label>
+
+                        <input asp-for="ProductName"
+                               class="form-control" />
+
+                        <span asp-validation-for="ProductName"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+
+                    <!-- CODE + CATEGORY -->
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <div class="mb-3">
+
+                                <label class="form-label fw-semibold">
+                                    Product Code
+                                </label>
+
+                                <input asp-for="ProductCode"
+                                       class="form-control"
+                                       readonly />
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <div class="mb-3">
+
+                                <label class="form-label fw-semibold">
+                                    Category
+                                </label>
+
+                                <select asp-for="CategoryId"
+                                        asp-items="ViewBag.Categories"
+                                        class="form-select">
+
+                                    <option value="">
+                                        -- Select Category --
+                                    </option>
+
+                                </select>
+
+                                <span asp-validation-for="CategoryId"
+                                      class="text-danger">
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BRAND -->
+
+                    <div class="mb-3">
+
+                        <label asp-for="Brand"
+                               class="form-label fw-semibold">
+                            Brand
+                        </label>
+
+                        <input asp-for="Brand"
+                               class="form-control" />
+
+                    </div>
+
+
+                    <!-- PRICE / OFFER / STOCK -->
+
+                    <div class="row">
+
+                        <div class="col-md-4">
+
+                            <div class="mb-3">
+
+                                <label asp-for="Price"
+                                       class="form-label fw-semibold">
+                                    Price
+                                </label>
+
+                                <div class="input-group">
+
+                                    <span class="input-group-text">
+                                        ₹
+                                    </span>
+
+                                    <input asp-for="Price"
+                                           class="form-control"
+                                           type="number"
+                                           step="0.01"
+                                           min="0" />
+
+                                </div>
+
+                                <span asp-validation-for="Price"
+                                      class="text-danger">
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-4">
+
+                            <div class="mb-3">
+
+                                <label asp-for="OfferPrice"
+                                       class="form-label fw-semibold">
+                                    Offer Price
+                                </label>
+
+                                <div class="input-group">
+
+                                    <span class="input-group-text">
+                                        ₹
+                                    </span>
+
+                                    <input asp-for="OfferPrice"
+                                           class="form-control"
+                                           type="number"
+                                           step="0.01"
+                                           min="0" />
+
+                                </div>
+
+                                <span asp-validation-for="OfferPrice"
+                                      class="text-danger">
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-4">
+
+                            <div class="mb-3">
+
+                                <label asp-for="Stock"
+                                       class="form-label fw-semibold">
+                                    Stock
+                                </label>
+
+                                <input asp-for="Stock"
+                                       class="form-control"
+                                       type="number"
+                                       min="0" />
+
+                                <span asp-validation-for="Stock"
+                                      class="text-danger">
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- GST + SHIPPING -->
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <div class="mb-3">
+
+                                <label asp-for="GstPercentage"
+                                       class="form-label fw-semibold">
+
+                                    GST Percentage
+
+                                </label>
+
+                                <div class="input-group">
+
+                                    <input asp-for="GstPercentage"
+                                           class="form-control"
+                                           type="number"
+                                           step="0.01"
+                                           min="0"
+                                           max="100" />
+
+                                    <span class="input-group-text">
+                                        %
+                                    </span>
+
+                                </div>
+
+                                <small class="text-muted">
+                                    GST applicable to this product.
+                                </small>
+
+                                <span asp-validation-for="GstPercentage"
+                                      class="text-danger">
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <div class="mb-3">
+
+                                <label asp-for="ShippingCharge"
+                                       class="form-label fw-semibold">
+
+                                    Shipping Charge
+
+                                </label>
+
+                                <div class="input-group">
+
+                                    <span class="input-group-text">
+                                        ₹
+                                    </span>
+
+                                    <input asp-for="ShippingCharge"
+                                           class="form-control"
+                                           type="number"
+                                           step="0.01"
+                                           min="0" />
+
+                                </div>
+
+                                <small class="text-muted">
+                                    Shipping charge for this product.
+                                </small>
+
+                                <span asp-validation-for="ShippingCharge"
+                                      class="text-danger">
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="mb-3">
+
+                        <label asp-for="Description"
+                               class="form-label fw-semibold">
+                            Description
+                        </label>
+
+                        <textarea asp-for="Description"
+                                  rows="5"
+                                  class="form-control"></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- RIGHT SIDE -->
+        <!-- ========================= -->
+
+        <div class="col-lg-4">
+
+
+            <!-- PRODUCT IMAGE -->
+
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+
+                <div class="card-header bg-white">
+
+                    <h5 class="mb-0">
+                        <i class="fa-solid fa-image me-2"></i>
+                        Product Image
+                    </h5>
+
+                </div>
+
+
+                <div class="card-body">
+
+                    <div class="border rounded-4 p-4 text-center"
+                         style="border-style:dashed!important;">
+
+                        <img id="previewImage"
+                             src="@(string.IsNullOrEmpty(Model.ExistingImage)
+                                                                   ? "https://placehold.co/300x300?text=Preview"
+                                                                   : Url.Content("~/images/products/" + Model.ExistingImage))"
+                             class="img-fluid rounded mb-3"
+                             style="max-height:250px;object-fit:contain;"
+                             alt="Product Image" />
+
+
+                        <input asp-for="ImageFile"
+                               type="file"
+                               class="form-control"
+                               id="imageInput"
+                               accept="image/*" />
+
+
+                        <small class="text-muted d-block mt-2">
+
+                            Choose a new product image
+                            if you want to replace the existing image.
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT SETTINGS -->
+
+            <div class="card border-0 shadow-sm rounded-4">
+
+                <div class="card-header bg-white">
+
+                    <h5 class="mb-0">
+                        <i class="fa-solid fa-sliders me-2"></i>
+                        Product Settings
+                    </h5>
+
+                </div>
+
+
+                <div class="card-body">
+
+
+                    <!-- FEATURED -->
+
+                    <div class="form-check form-switch mb-3">
+
+                        <input asp-for="IsFeatured"
+                               class="form-check-input" />
+
+                        <label asp-for="IsFeatured"
+                               class="form-check-label">
+
+                            Featured Product
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- NEW ARRIVAL -->
+
+                    <div class="form-check form-switch mb-3">
+
+                        <input asp-for="IsNewArrival"
+                               class="form-check-input" />
+
+                        <label asp-for="IsNewArrival"
+                               class="form-check-label">
+
+                            New Arrival
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- BEST SELLER -->
+
+                    <div class="form-check form-switch mb-3">
+
+                        <input asp-for="IsBestSeller"
+                               class="form-check-input" />
+
+                        <label asp-for="IsBestSeller"
+                               class="form-check-label">
+
+                            Best Seller
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- ACTIVE -->
+
+                    <div class="form-check form-switch mb-4">
+
+                        <input asp-for="IsActive"
+                               class="form-check-input" />
+
+                        <label asp-for="IsActive"
+                               class="form-check-label">
+
+                            Active
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- UPDATE -->
+
+                    <button type="submit"
+                            class="btn btn-primary w-100">
+
+                        <i class="fa-solid fa-floppy-disk me-1"></i>
+
+                        Update Product
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+
+        const imageInput =
+            document.getElementById("imageInput");
+
+        if (imageInput)
+        {
+            imageInput.addEventListener("change", function (e)
+            {
+                const file = e.target.files[0];
+
+                if (!file)
+                    return;
+
+                const reader = new FileReader();
+
+                reader.onload = function (event)
+                {
+                    document.getElementById("previewImage").src =
+                        event.target.result;
+                };
+
+                reader.readAsDataURL(file);
+            });
+        }
+
+    </script>
+}

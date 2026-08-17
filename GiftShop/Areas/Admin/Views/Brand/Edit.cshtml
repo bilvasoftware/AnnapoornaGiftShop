@@ -1,0 +1,98 @@
+﻿@model GiftShop.Areas.Admin.ViewModels.BrandViewModel
+
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Edit Brand";
+}
+
+<div class="card shadow-sm border-0">
+
+    <div class="card-header bg-primary text-white">
+        <h4>Edit Brand</h4>
+    </div>
+
+    <div class="card-body">
+
+        <form asp-action="Edit"
+              method="post"
+              enctype="multipart/form-data">
+
+            @Html.AntiForgeryToken()
+            <input asp-for="BrandId" type="hidden" />
+
+            <div class="mb-3">
+
+                <label asp-for="BrandName" class="form-label"></label>
+
+                <input asp-for="BrandName" class="form-control" />
+
+                <span asp-validation-for="BrandName" class="text-danger"></span>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label asp-for="DisplayOrder" class="form-label"></label>
+
+                <input asp-for="DisplayOrder" class="form-control" />
+
+            </div>
+
+            @if (!string.IsNullOrEmpty(Model.ExistingLogo))
+            {
+                <div class="mb-3">
+
+                    <img src="~/images/brands/@Model.ExistingLogo"
+                         width="120"
+                         class="img-thumbnail" />
+
+                </div>
+            }
+
+            <div class="mb-3">
+
+                <label asp-for="LogoFile" class="form-label"></label>
+
+                <input asp-for="LogoFile"
+                       type="file"
+                       class="form-control"
+                       accept="image/*" />
+
+            </div>
+
+            <div class="form-check mb-4">
+
+                <input asp-for="IsActive"
+                       class="form-check-input" />
+
+                <label asp-for="IsActive"
+                       class="form-check-label"></label>
+
+            </div>
+
+            <button type="submit"
+                    class="btn btn-success">
+
+                <i class="fa-solid fa-floppy-disk"></i>
+
+                Update Brand
+
+            </button>
+
+            <a asp-action="Index"
+               class="btn btn-secondary">
+
+                Cancel
+
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

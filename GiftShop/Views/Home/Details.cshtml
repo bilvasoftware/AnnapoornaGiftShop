@@ -1,0 +1,465 @@
+﻿@model GiftShop.ViewModels.ProductDetailsPageViewModel
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = Model.ProductDetails.Product.ProductName;
+
+    var product = Model.ProductDetails.Product;
+
+    // Use Offer Price when available, otherwise regular Price
+    var sellingPrice = product.OfferPrice ?? product.Price;
+
+    // Calculate GST for this particular product
+    var gstAmount = sellingPrice * product.GstPercentage / 100;
+
+    // Product total including GST and shipping
+    var finalAmount = sellingPrice + gstAmount + product.ShippingCharge;
+}
+
+<section class="container py-5">
+
+    <div class="row g-5">
+
+        <!-- ========================= -->
+        <!-- LEFT - PRODUCT IMAGE -->
+        <!-- ========================= -->
+
+        <div class="col-lg-5">
+
+            <div class="card shadow-sm border-0 rounded-4">
+
+                <div class="card-body text-center">
+
+                    <img id="mainImage"
+                         src="~/images/products/@product.ProductImage"
+                         class="img-fluid rounded"
+                         style="max-height:450px;object-fit:contain;"
+                         alt="@product.ProductName" />
+
+                </div>
+
+            </div>
+
+            <!-- Gallery -->
+            @if (Model.ProductDetails.GalleryImages.Any())
+            {
+                <div class="d-flex flex-wrap gap-2 mt-3">
+
+                    @foreach (var image in Model.ProductDetails.GalleryImages)
+                    {
+                        <img src="~/images/products/gallery/@image.ImageName"
+                             class="img-thumbnail gallery-thumb"
+                             style="width:90px;height:90px;object-fit:cover;cursor:pointer;"
+                             onclick="changeImage(this)"
+                             alt="@product.ProductName" />
+                    }
+
+                </div>
+            }
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- RIGHT - PRODUCT DETAILS -->
+        <!-- ========================= -->
+
+        <div class="col-lg-7">
+
+            <h2 class="fw-bold mb-3">
+                @product.ProductName
+            </h2>
+
+
+            <!-- Brand -->
+            @if (!string.IsNullOrWhiteSpace(product.Brand))
+            {
+                <p class="text-muted mb-2">
+
+                    <strong>Brand:</strong>
+
+                    @product.Brand
+
+                </p>
+            }
+
+
+            <!-- Category -->
+            @if (product.Category != null)
+            {
+                <p class="text-muted mb-3">
+
+                    <strong>Category:</strong>
+
+                    @product.Category.CategoryName
+
+                </p>
+            }
+
+
+            <!-- ========================= -->
+            <!-- PRICE -->
+            <!-- ========================= -->
+
+            <div class="mb-3">
+
+                @if (product.OfferPrice.HasValue)
+                {
+                    <h3>
+
+                        <span class="text-danger fw-bold">
+
+                            ₹@product.OfferPrice.Value.ToString("N2")
+
+                        </span>
+
+                        <small class="text-decoration-line-through text-muted ms-2">
+
+                            ₹@product.Price.ToString("N2")
+
+                        </small>
+
+                    </h3>
+
+                    <span class="badge bg-danger">
+
+                        Special Offer
+
+                    </span>
+                }
+                else
+                {
+                    <h3 class="text-primary fw-bold">
+
+                        ₹@product.Price.ToString("N2")
+
+                    </h3>
+                }
+
+            </div>
+
+
+            <hr />
+
+
+            <!-- ========================= -->
+            <!-- PRICE BREAKDOWN -->
+            <!-- ========================= -->
+
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+
+                <div class="card-body">
+
+                    <h5 class="fw-bold mb-3">
+
+                        <i class="fa-solid fa-receipt me-2"></i>
+
+                        Price Details
+
+                    </h5>
+
+
+                    <!-- Product Price -->
+
+                    <div class="d-flex justify-content-between mb-2">
+
+                        <span>
+                            Product Price
+                        </span>
+
+                        <span class="fw-semibold">
+
+                            ₹@sellingPrice.ToString("N2")
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- GST -->
+
+                    <div class="d-flex justify-content-between mb-2">
+
+                        <span>
+
+                            GST
+                            (@product.GstPercentage.ToString("0.##")%)
+
+                        </span>
+
+                        <span class="fw-semibold">
+
+                            ₹@gstAmount.ToString("N2")
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- Shipping -->
+
+                    <div class="d-flex justify-content-between mb-2">
+
+                        <span>
+
+                            Shipping
+
+                        </span>
+
+                        <span class="fw-semibold">
+
+                            @if (product.ShippingCharge > 0)
+                            {
+                                <text>₹@product.ShippingCharge.ToString("N2")</text>
+                            }
+                            else
+                            {
+                                <span class="text-success">
+                                    FREE
+                                </span>
+                            }
+
+                        </span>
+
+                    </div>
+
+
+                    <hr />
+
+
+                    <!-- Final Total -->
+
+                    <div class="d-flex justify-content-between">
+
+                        <strong class="fs-5">
+
+                            Total Amount
+
+                        </strong>
+
+                        <strong class="fs-5 text-success">
+
+                            ₹@finalAmount.ToString("N2")
+
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ========================= -->
+            <!-- DESCRIPTION -->
+            <!-- ========================= -->
+
+            <h5 class="fw-bold">
+
+                Description
+
+            </h5>
+
+            <p class="text-muted">
+
+                @product.Description
+
+            </p>
+
+
+            <hr />
+
+
+            <!-- ========================= -->
+            <!-- STOCK -->
+            <!-- ========================= -->
+            @if (product.Stock > 0)
+            {
+                <span class="badge bg-success fs-6">
+
+                    <i class="fa-solid fa-check me-1"></i>
+
+                    In Stock (@product.Stock)
+
+                </span>
+            }
+            else
+            {
+                <span class="badge bg-danger fs-6">
+
+                    <i class="fa-solid fa-xmark me-1"></i>
+
+                    Out of Stock
+
+                </span>
+            }
+
+
+            <!-- ========================= -->
+            <!-- ADD TO CART -->
+            <!-- ========================= -->
+
+            <div class="mt-4">
+
+                @if (product.Stock > 0)
+                {
+                    <a asp-controller="Cart"
+                       asp-action="Add"
+                       asp-route-id="@product.ProductId"
+                       class="btn btn-primary btn-lg">
+
+                        <i class="fa-solid fa-cart-shopping me-2"></i>
+
+                        Add To Cart
+
+                    </a>
+                }
+                else
+                {
+                    <button class="btn btn-secondary btn-lg"
+                            disabled>
+
+                        <i class="fa-solid fa-ban me-2"></i>
+
+                        Out of Stock
+
+                    </button>
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- RELATED PRODUCTS -->
+<!-- ========================================================= -->
+
+<section class="container pb-5">
+
+    <hr class="my-5" />
+
+    <h3 class="fw-bold mb-4">
+
+        Related Products
+
+    </h3>
+
+
+    <div class="row g-4">
+
+        @foreach (var relatedProduct in Model.RelatedProducts)
+        {
+            var relatedSellingPrice =
+            relatedProduct.OfferPrice ?? relatedProduct.Price;
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+
+                    <img src="~/images/products/@relatedProduct.ProductImage"
+                         class="card-img-top p-3"
+                         style="height:220px;object-fit:contain;"
+                         alt="@relatedProduct.ProductName" />
+
+
+                    <div class="card-body text-center d-flex flex-column">
+
+                        <h6 class="fw-bold">
+
+                            @relatedProduct.ProductName
+
+                        </h6>
+
+
+                        @if (relatedProduct.OfferPrice.HasValue)
+                        {
+                            <p>
+
+                                <span class="text-danger fw-bold">
+
+                                    ₹@relatedProduct.OfferPrice.Value.ToString("N2")
+
+                                </span>
+
+                                <small class="text-decoration-line-through text-muted">
+
+                                    ₹@relatedProduct.Price.ToString("N2")
+
+                                </small>
+
+                            </p>
+                        }
+                        else
+                        {
+                            <p class="text-primary fw-bold">
+
+                                ₹@relatedProduct.Price.ToString("N2")
+
+                            </p>
+                        }
+
+
+                        <a asp-controller="Home"
+                           asp-action="Details"
+                           asp-route-id="@relatedProduct.ProductId"
+                           class="btn btn-outline-primary mt-auto">
+
+                            View Product
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</section>
+
+
+@section Scripts
+{
+    <script>
+
+        function changeImage(img) {
+
+            // Change main image
+            document.getElementById("mainImage").src = img.src;
+
+            // Remove active class
+            document.querySelectorAll(".gallery-thumb")
+                .forEach(function (item) {
+
+                    item.classList.remove("active-thumb");
+
+                });
+
+            // Highlight selected image
+            img.classList.add("active-thumb");
+        }
+
+
+        // Highlight first thumbnail
+        window.addEventListener("load", function () {
+
+            var first =
+                document.querySelector(".gallery-thumb");
+
+            if (first) {
+
+                first.classList.add("active-thumb");
+
+            }
+
+        });
+
+    </script>
+}

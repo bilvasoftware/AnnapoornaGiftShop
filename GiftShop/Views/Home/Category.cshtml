@@ -1,0 +1,79 @@
+﻿@model IEnumerable<GiftShop.Models.Product>
+
+@{
+    ViewData["Title"] = ViewBag.CategoryName;
+}
+
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <h1 class="fw-bold">
+            @ViewBag.CategoryName
+        </h1>
+
+        <p class="text-muted">
+            Browse all products in this category.
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        @foreach (var product in Model)
+        {
+            <div class="col-lg-3 col-md-6">
+
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+
+                    <img src="~/images/products/@product.ProductImage"
+                         class="card-img-top p-3"
+                         style="height:220px;object-fit:contain;"
+                         alt="@product.ProductName" />
+
+                    <div class="card-body text-center d-flex flex-column">
+
+                        <h5 class="fw-bold">
+                            @product.ProductName
+                        </h5>
+
+                        @if (product.OfferPrice.HasValue)
+                        {
+                            <h5>
+
+                                <span class="text-danger fw-bold">
+                                    ₹@product.OfferPrice
+                                </span>
+
+                                <small class="text-decoration-line-through text-muted">
+                                    ₹@product.Price
+                                </small>
+
+                            </h5>
+                        }
+                        else
+                        {
+                            <h5 class="text-primary fw-bold">
+                                ₹@product.Price
+                            </h5>
+                        }
+
+                        <a asp-controller="Home"
+                           asp-action="Details"
+                           asp-route-id="@product.ProductId"
+                           class="btn btn-primary mt-auto">
+
+                            View Product
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</section>

@@ -1,0 +1,1043 @@
+﻿@model GiftShop.Models.ContactMessage
+
+@using GiftShop.Models
+
+@{
+    ViewData["Title"] = "Contact";
+
+    var shop = ViewBag.Shop as ShopSetting;
+
+    // Default values if Admin Settings are empty
+    var shopName = shop?.ShopName ?? "Annapoorna Gift Shop";
+    var shopDescription = shop?.Description ?? "Beautiful gifts for every occasion.";
+
+    var phone = shop?.Phone ?? "7200088400";
+
+    var phoneNumber = new string(
+        phone.Where(char.IsDigit).ToArray()
+    );
+
+    var whatsapp = shop?.WhatsAppNumber;
+
+    if (string.IsNullOrWhiteSpace(whatsapp))
+    {
+        whatsapp = phone;
+    }
+
+    var whatsappNumber = new string(
+        whatsapp.Where(char.IsDigit).ToArray()
+    );
+
+    var whatsappMessage =
+        shop?.WhatsAppMessage
+        ?? "🌸 Hello Annapoorna Gift Shop!%0A%0AI hope you're doing well.%0A%0AI visited your website and I'm interested in your beautiful gift collection.%0A%0ACould you please help me with the available products, prices, and offers?%0A%0AThank you. I look forward to your reply.";
+
+    var whatsappUrl =
+        $"https://wa.me/{whatsappNumber}?text={Uri.EscapeDataString(whatsappMessage)}";
+
+    var googleMapsUrl = shop?.GoogleMapsUrl;
+
+    var address = shop?.Address ?? "Salem, Tamil Nadu";
+
+    var email = shop?.Email;
+}
+
+
+<!-- =========================================================
+     CONTACT PAGE
+     ========================================================= -->
+
+<div class="container py-5">
+
+    <!-- ================= PAGE HEADER ================= -->
+
+    <div class="text-center mb-5">
+
+        <div class="contact-page-icon">
+
+            <i class="bi bi-chat-heart-fill"></i>
+
+        </div>
+
+        <h1 class="fw-bold mt-3">
+            Contact Us
+        </h1>
+
+        <p class="text-muted">
+            We'd love to hear from you. Get in touch with us.
+        </p>
+
+
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show mt-4"
+                 role="alert">
+
+                <i class="bi bi-check-circle-fill me-2"></i>
+
+                @TempData["Success"]
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="alert">
+                </button>
+
+            </div>
+        }
+
+    </div>
+
+
+    <!-- ================= CONTACT SECTION ================= -->
+
+    <div class="contact-section">
+
+        <div class="row g-4">
+
+
+            <!-- =================================================
+                 SHOP INFORMATION
+                 ================================================= -->
+
+            <div class="col-lg-5">
+
+                <div class="contact-info-card h-100">
+
+
+                    <!-- HEADER -->
+
+                    <div class="contact-card-header">
+
+                        <div class="contact-icon-main">
+
+                            <i class="bi bi-shop"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3 class="mb-1">
+
+                                @shopName
+
+                            </h3>
+
+                            <p class="mb-0">
+
+                                @shopDescription
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         ADDRESS
+                         ================================================= -->
+
+                    <div class="contact-info-item">
+
+                        <div class="contact-info-icon address-icon">
+
+                            <i class="bi bi-geo-alt-fill"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h6>
+                                Address
+                            </h6>
+
+                            <p class="mb-2">
+
+                                @shopName
+
+                                <br />
+
+                                @address
+
+                                @if (!string.IsNullOrWhiteSpace(shop?.City))
+                                {
+                                    <br />
+
+                                    @shop.City
+                                }
+
+                                @if (!string.IsNullOrWhiteSpace(shop?.Pincode))
+                                {
+                                    <br />
+
+                                    @shop.Pincode
+                                }
+
+                            </p>
+
+
+                            @if (!string.IsNullOrWhiteSpace(googleMapsUrl))
+                            {
+                                <a href="@googleMapsUrl"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="contact-small-btn">
+
+                                    <i class="bi bi-map-fill"></i>
+
+                                    Open in Google Maps
+
+                                </a>
+                            }
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         PHONE
+                         ================================================= -->
+
+                    <div class="contact-info-item">
+
+                        <div class="contact-info-icon phone-icon">
+
+                            <i class="bi bi-telephone-fill"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h6>
+                                Phone
+                            </h6>
+
+                            <a href="tel:@phoneNumber"
+                               class="contact-value">
+
+                                @phone
+
+                            </a>
+
+
+                            <div class="mt-2 d-flex flex-wrap gap-2">
+
+
+                                <!-- CALL -->
+
+                                <a href="tel:@phoneNumber"
+                                   class="contact-action call-btn">
+
+                                    <i class="bi bi-telephone-fill"></i>
+
+                                    Call Now
+
+                                </a>
+
+
+                                <!-- WHATSAPP -->
+
+                                <a href="@whatsappUrl"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="contact-action whatsapp-btn">
+
+                                    <i class="bi bi-whatsapp"></i>
+
+                                    WhatsApp
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         EMAIL
+                         ================================================= -->
+
+                    <div class="contact-info-item">
+
+                        <div class="contact-info-icon email-icon">
+
+                            <i class="bi bi-envelope-fill"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h6>
+                                Email
+                            </h6>
+
+
+                            @if (!string.IsNullOrWhiteSpace(email))
+                            {
+                                <a href="mailto:@email"
+                                   class="contact-value">
+
+                                    @email
+
+                                </a>
+                            }
+                            else
+                            {
+                                <span class="text-muted">
+
+                                    Email not available
+
+                                </span>
+                            }
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         BUSINESS HOURS
+                         ================================================= -->
+
+                    <div class="contact-info-item">
+
+                        <div class="contact-info-icon time-icon">
+
+                            <i class="bi bi-clock-fill"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h6>
+                                Business Hours
+                            </h6>
+
+                            <p class="mb-0">
+
+                                Monday - Sunday
+
+                                <br />
+
+                                <strong>
+                                    9:00 AM - 9:00 PM
+                                </strong>
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- WELCOME -->
+
+                    <div class="contact-welcome">
+
+                        <i class="bi bi-heart-fill"></i>
+
+                        We look forward to welcoming you!
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SEND MESSAGE FORM
+                 ================================================= -->
+
+            <div class="col-lg-7">
+
+                <div class="contact-form-card h-100">
+
+
+                    <!-- FORM HEADER -->
+
+                    <div class="form-heading">
+
+                        <div class="form-icon">
+
+                            <i class="bi bi-envelope-paper-heart-fill"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3 class="mb-1">
+                                Send Us a Message
+                            </h3>
+
+                            <p class="mb-0">
+                                Have a question? We're here to help.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FORM -->
+
+                    <form asp-action="Contact"
+                          method="post"
+                          class="mt-4">
+
+
+                        @Html.AntiForgeryToken()
+
+
+                        <!-- NAME + PHONE -->
+
+                        <div class="row">
+
+
+                            <!-- NAME -->
+
+                            <div class="col-md-6 mb-3">
+
+                                <label asp-for="Name"
+                                       class="contact-label">
+
+                                    <i class="bi bi-person-fill"></i>
+
+                                    Your Name
+
+                                </label>
+
+                                <input asp-for="Name"
+                                       class="form-control contact-input"
+                                       placeholder="Enter your name" />
+
+                                <span asp-validation-for="Name"
+                                      class="text-danger small">
+                                </span>
+
+                            </div>
+
+
+                            <!-- PHONE -->
+
+                            <div class="col-md-6 mb-3">
+
+                                <label asp-for="Phone"
+                                       class="contact-label">
+
+                                    <i class="bi bi-telephone-fill"></i>
+
+                                    Phone Number
+
+                                </label>
+
+                                <input asp-for="Phone"
+                                       class="form-control contact-input"
+                                       placeholder="Enter your phone number" />
+
+                                <span asp-validation-for="Phone"
+                                      class="text-danger small">
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+
+                        <div class="mb-3">
+
+                            <label asp-for="Email"
+                                   class="contact-label">
+
+                                <i class="bi bi-envelope-fill"></i>
+
+                                Email Address
+
+                            </label>
+
+                            <input asp-for="Email"
+                                   class="form-control contact-input"
+                                   placeholder="Enter your email address" />
+
+                            <span asp-validation-for="Email"
+                                  class="text-danger small">
+                            </span>
+
+                        </div>
+
+
+                        <!-- MESSAGE -->
+
+                        <div class="mb-4">
+
+                            <label asp-for="Message"
+                                   class="contact-label">
+
+                                <i class="bi bi-chat-left-text-fill"></i>
+
+                                Your Message
+
+                            </label>
+
+                            <textarea asp-for="Message"
+                                      rows="6"
+                                      class="form-control contact-input"
+                                      placeholder="Tell us how we can help you..."></textarea>
+
+                            <span asp-validation-for="Message"
+                                  class="text-danger small">
+                            </span>
+
+                        </div>
+
+
+                        <!-- SUBMIT -->
+
+                        <button type="submit"
+                                class="contact-submit-btn">
+
+                            <i class="bi bi-send-fill"></i>
+
+                            Send Message
+
+                            <i class="bi bi-arrow-right ms-2"></i>
+
+                        </button>
+
+
+                        <!-- SECURITY -->
+
+                        <div class="form-note">
+
+                            <i class="bi bi-shield-check"></i>
+
+                            Your information is safe with us.
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     GOOGLE MAP
+     ========================================================= -->
+
+<div class="container mt-5 mb-5">
+
+    <div class="map-heading text-center mb-3">
+
+        <span>
+
+            <i class="bi bi-geo-alt-fill"></i>
+
+        </span>
+
+        <h3 class="fw-bold mt-2">
+            Find Us
+        </h3>
+
+        <p class="text-muted">
+            Visit @shopName
+        </p>
+
+    </div>
+
+
+    <div class="map-wrapper">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.960990066036!2d78.1192973!3d11.6261303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babeff1754b1d15%3A0xaafac1439ccbd075!2sAnnapoorna%20Gift%20Shop!5e0!3m2!1sen!2sin!4v1786692935016!5m2!1sen!2sin"
+                width="100%"
+                height="400"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+
+    </div>
+
+    else
+    {
+        <div class="map-wrapper">
+
+        <!-- Find Us -->
+<section class="find-us-section">
+
+    <div class="find-us-header text-center">
+
+        <div class="find-us-icon">
+            <i class="bi bi-geo-alt-fill"></i>
+        </div>
+
+        <h2>Find Us</h2>
+
+        <p>
+            Visit @shop.ShopName
+        </p>
+
+    </div>
+
+    <div class="find-us-card">
+
+        <div class="find-us-map-placeholder">
+
+            <div class="map-content">
+
+                <div class="map-pin">
+                    <i class="bi bi-geo-alt-fill"></i>
+                </div>
+
+                <h4>@shop.ShopName</h4>
+
+                <p>
+                    @shop.Address
+                    @if (!string.IsNullOrWhiteSpace(shop.City))
+                    {
+                        <span>, @shop.City</span>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(shop.Pincode))
+                    {
+                        <span> - @shop.Pincode</span>
+                    }
+                </p>
+
+                @if (!string.IsNullOrWhiteSpace(shop.GoogleMapsUrl))
+                {
+                    <a href="@shop.GoogleMapsUrl"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-primary find-us-btn">
+
+                        <i class="bi bi-map-fill"></i>
+
+                        Open Location in Google Maps
+
+                    </a>
+                }
+                else
+                {
+                    <span class="text-muted">
+                        Google Maps location is not configured.
+                    </span>
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+        </div>
+    }
+
+</div>
+
+
+
+<!-- =========================================================
+     CONTACT PAGE CSS
+     ========================================================= -->
+
+<style>
+
+    /* PAGE ICON */
+
+    .contact-page-icon {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #9a693f;
+        color: white;
+        font-size: 30px;
+        box-shadow: 0 8px 20px rgba(154, 105, 63, 0.25);
+    }
+
+
+    /* CONTACT SECTION */
+
+    .contact-section {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+
+    /* CARDS */
+
+    .contact-info-card,
+    .contact-form-card {
+        background: #ffffff;
+        border: 1px solid #eeeeee;
+        border-radius: 18px;
+        padding: 30px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+        transition: 0.3s ease;
+    }
+
+
+        .contact-info-card:hover,
+        .contact-form-card:hover {
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.10);
+        }
+
+
+    /* HEADERS */
+
+    .contact-card-header,
+    .form-heading {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding-bottom: 22px;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+
+        .contact-card-header h3,
+        .form-heading h3 {
+            font-weight: 700;
+            color: #292929;
+        }
+
+
+        .contact-card-header p,
+        .form-heading p {
+            color: #777;
+            font-size: 14px;
+        }
+
+
+    /* MAIN ICONS */
+
+    .contact-icon-main,
+    .form-icon {
+        width: 55px;
+        height: 55px;
+        min-width: 55px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #9a693f;
+        color: white;
+        font-size: 24px;
+    }
+
+
+    /* INFORMATION ITEMS */
+
+    .contact-info-item {
+        display: flex;
+        gap: 15px;
+        padding: 18px 0;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+
+    .contact-info-icon {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+    }
+
+
+    .address-icon {
+        background: #fff0f0;
+        color: #e63946;
+    }
+
+
+    .phone-icon {
+        background: #edf9f1;
+        color: #16834b;
+    }
+
+
+    .email-icon {
+        background: #eef4ff;
+        color: #3366cc;
+    }
+
+
+    .time-icon {
+        background: #fff7e6;
+        color: #e09a00;
+    }
+
+
+    .contact-info-item h6 {
+        margin-bottom: 5px;
+        font-weight: 700;
+        color: #333;
+    }
+
+
+    .contact-info-item p {
+        color: #666;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+
+    /* CONTACT LINKS */
+
+    .contact-value {
+        color: #9a693f;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+
+        .contact-value:hover {
+            text-decoration: underline;
+        }
+
+
+    /* SMALL BUTTON */
+
+    .contact-small-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+        border-radius: 7px;
+        padding: 7px 11px;
+        font-size: 13px;
+        font-weight: 600;
+        background: #f4f1ee;
+        color: #8b5e38;
+        transition: 0.2s ease;
+    }
+
+
+        .contact-small-btn:hover {
+            background: #9a693f;
+            color: white;
+        }
+
+
+    /* CONTACT ACTION BUTTONS */
+
+    .contact-action {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+        border-radius: 7px;
+        padding: 7px 11px;
+        font-size: 13px;
+        font-weight: 600;
+        transition: 0.2s ease;
+    }
+
+
+    .call-btn {
+        background: #edf9f1;
+        color: #16834b;
+    }
+
+
+        .call-btn:hover {
+            background: #16834b;
+            color: white;
+        }
+
+
+    .whatsapp-btn {
+        background: #e9f8ef;
+        color: #16834b;
+    }
+
+
+        .whatsapp-btn:hover {
+            background: #16834b;
+            color: white;
+        }
+
+
+    /* WELCOME */
+
+    .contact-welcome {
+        margin-top: 20px;
+        padding: 13px 15px;
+        border-radius: 10px;
+        background: #faf6f2;
+        color: #8b5e38;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+
+        .contact-welcome i {
+            margin-right: 7px;
+        }
+
+
+    /* FORM LABEL */
+
+    .contact-label {
+        display: block;
+        margin-bottom: 7px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #444;
+    }
+
+
+        .contact-label i {
+            color: #9a693f;
+            margin-right: 5px;
+        }
+
+
+    /* INPUT */
+
+    .contact-input {
+        border: 1px solid #dddddd;
+        border-radius: 9px;
+        padding: 11px 13px;
+        font-size: 14px;
+        transition: all 0.2s ease;
+    }
+
+
+        .contact-input:focus {
+            border-color: #9a693f;
+            box-shadow: 0 0 0 3px rgba(154, 105, 63, 0.12);
+        }
+
+
+        .contact-input::placeholder {
+            color: #aaa;
+        }
+
+
+    /* SUBMIT BUTTON */
+
+    .contact-submit-btn {
+        width: 100%;
+        border: none;
+        border-radius: 9px;
+        padding: 13px 20px;
+        background: #9a693f;
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+    }
+
+
+        .contact-submit-btn:hover {
+            background: #7e522f;
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(126, 82, 47, 0.25);
+        }
+
+
+    /* FORM NOTE */
+
+    .form-note {
+        text-align: center;
+        margin-top: 14px;
+        font-size: 12px;
+        color: #888;
+    }
+
+
+        .form-note i {
+            color: #16834b;
+            margin-right: 4px;
+        }
+
+
+    /* MAP */
+
+    .map-heading span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: #f4f1ee;
+        color: #9a693f;
+        font-size: 20px;
+    }
+
+
+    .map-wrapper {
+        overflow: hidden;
+        border-radius: 18px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        border: 1px solid #eeeeee;
+    }
+
+
+        .map-wrapper iframe {
+            display: block;
+        }
+
+
+    /* MOBILE */
+
+    @@media (max-width: 767px) {
+
+        .contact-info-card,
+        .contact-form-card {
+            padding: 20px;
+            border-radius: 14px;
+        }
+
+
+        .contact-card-header,
+        .form-heading {
+            align-items: flex-start;
+        }
+
+
+        .contact-icon-main,
+        .form-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            font-size: 20px;
+        }
+    }
+
+</style>
+
+
+
+@section Scripts {
+
+    <partial name="_ValidationScriptsPartial" />
+
+}

@@ -1,0 +1,110 @@
+﻿@model GiftShop.Areas.Admin.ViewModels.ProductGalleryViewModel
+
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Product Gallery";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <div>
+        <h3>Product Gallery</h3>
+        <h6 class="text-muted">@Model.ProductName</h6>
+    </div>
+
+    <a asp-action="Index"
+       class="btn btn-secondary">
+
+        Back
+
+    </a>
+
+</div>
+
+<div class="card shadow-sm border-0 rounded-4">
+
+    <div class="card-body">
+
+        <form asp-action="Gallery"
+              method="post"
+              enctype="multipart/form-data">
+
+            @Html.AntiForgeryToken()
+
+            <input asp-for="ProductId" type="hidden" />
+
+            <div class="mb-3">
+
+                <label class="form-label">
+
+                    Upload Gallery Images
+
+                </label>
+
+                <input asp-for="Images"
+                       class="form-control"
+                       type="file"
+                       multiple
+                       accept="image/*" />
+
+            </div>
+
+            <button class="btn btn-primary">
+
+                Upload Images
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<hr />
+
+<div class="row mt-4">
+
+    @if (Model.Gallery.Any())
+    {
+        @foreach (var image in Model.Gallery)
+        {
+            <div class="col-md-3 mb-4">
+
+                <div class="card shadow-sm">
+
+                    <img src="~/images/products/gallery/@image.ImageName"
+                         class="card-img-top"
+                         style="height:220px;object-fit:cover;" />
+
+                    <div class="card-body text-center">
+
+                        <a asp-action="DeleteGalleryImage"
+                           asp-route-id="@image.ProductImageId"
+                           class="btn btn-danger btn-sm">
+
+                            Delete
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+    }
+    else
+    {
+        <div class="col-12">
+
+            <div class="alert alert-info">
+
+                No gallery images uploaded.
+
+            </div>
+
+        </div>
+    }
+
+</div>

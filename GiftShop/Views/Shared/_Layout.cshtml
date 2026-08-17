@@ -1,0 +1,436 @@
+﻿@using GiftShop.Services
+@inject IShopSettingService ShopSettings
+
+@{
+    var shop = await ShopSettings.GetAsync();
+
+    var whatsappNumber = shop.WhatsAppNumber?
+    .Replace("+", "")
+    .Replace(" ", "")
+    .Replace("-", "")
+    .Replace("(", "")
+    .Replace(")", "");
+
+    if (!string.IsNullOrWhiteSpace(whatsappNumber))
+    {
+        if (whatsappNumber.StartsWith("91"))
+        {
+            // Already contains India country code
+        }
+        else if (whatsappNumber.Length == 10)
+        {
+            whatsappNumber = "91" + whatsappNumber;
+        }
+    }
+
+    var whatsappMessage = Uri.EscapeDataString(
+     string.IsNullOrWhiteSpace(shop.WhatsAppMessage)
+         ? "Hello, I am interested in your products. Please provide me with more details."
+         : shop.WhatsAppMessage
+ );
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>
+        @ViewData["Title"] - @shop.ShopName
+    </title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+          rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+    <!-- Website CSS -->
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- HEADER -->
+    <!-- ========================= -->
+
+    <header class="shadow-sm">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+
+            <div class="container">
+
+                <!-- Logo / Shop Name -->
+
+                <a class="navbar-brand fw-bold"
+                   asp-controller="Home"
+                   asp-action="Index">
+
+                    @shop.ShopName
+
+                </a>
+
+
+                <!-- Mobile Menu Button -->
+
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#menu"
+                        aria-controls="menu"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+
+                <!-- Navigation -->
+
+                <div class="collapse navbar-collapse"
+                     id="menu">
+
+                    <ul class="navbar-nav ms-auto align-items-center">
+
+                        <!-- Home -->
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Home"
+                               asp-action="Index">
+                                Home
+                            </a>
+                        </li>
+
+                        <!-- Categories -->
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Home"
+                               asp-action="Categories">
+                                Categories
+                            </a>
+                        </li>
+
+                        <!-- Shop -->
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Home"
+                               asp-action="Shop">
+                                Shop
+                            </a>
+                        </li>
+
+                        <!-- About -->
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Home"
+                               asp-action="About">
+                                About
+                            </a>
+                        </li>
+
+                        <!-- Contact -->
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Home"
+                               asp-action="Contact">
+                                Contact
+                            </a>
+                        </li>
+
+                        <!-- Cart -->
+                        <li class="nav-item ms-2">
+                            <a class="nav-link position-relative"
+                               asp-controller="Cart"
+                               asp-action="Index"
+                               title="Shopping Cart">
+
+                                <i class="bi bi-cart3 fs-5"></i>
+
+                                <span class="ms-1">Cart</span>
+
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ========================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ========================= -->
+
+    <main>
+
+        @RenderBody()
+
+    </main>
+
+
+    <!-- ========================= -->
+    <!-- FOOTER -->
+    <!-- ========================= -->
+
+    <footer class="bg-dark text-white py-4 mt-5">
+
+        <div class="container">
+
+            <div class="row">
+
+
+                <!-- Shop Information -->
+
+                <div class="col-md-4 mb-4">
+
+                    <h5 class="fw-bold">
+
+                        @shop.ShopName
+
+                    </h5>
+
+                    @if (!string.IsNullOrWhiteSpace(shop.Description))
+                    {
+                        <p class="mb-0">
+
+                            @shop.Description
+
+                        </p>
+                    }
+
+                </div>
+
+
+                <!-- Quick Links -->
+
+                <div class="col-md-4 mb-4">
+
+                    <h5 class="fw-bold">
+
+                        Quick Links
+
+                    </h5>
+
+                    <ul class="list-unstyled">
+
+                        <li class="mb-2">
+
+                            <a asp-controller="Home"
+                               asp-action="Index"
+                               class="text-white text-decoration-none">
+
+                                Home
+
+                            </a>
+
+                        </li>
+
+                        <li class="mb-2">
+
+                            <a asp-controller="Home"
+                               asp-action="Shop"
+                               class="text-white text-decoration-none">
+
+                                Shop
+
+                            </a>
+
+                        </li>
+
+                        <li class="mb-2">
+
+                            <a asp-controller="Home"
+                               asp-action="Categories"
+                               class="text-white text-decoration-none">
+
+                                Categories
+
+                            </a>
+
+                        </li>
+
+                        <li class="mb-2">
+
+                            <a asp-controller="Home"
+                               asp-action="Contact"
+                               class="text-white text-decoration-none">
+
+                                Contact
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Contact Information -->
+
+                <div class="col-md-4 mb-4">
+
+                    <h5 class="fw-bold">
+
+                        Contact
+
+                    </h5>
+
+
+                    <!-- Email -->
+                    @if (!string.IsNullOrWhiteSpace(shop.Email))
+                    {
+                        <div class="mb-3">
+
+                            <i class="bi bi-envelope-fill me-2"></i>
+
+                            <a href="mailto:@shop.Email"
+                               class="text-white text-decoration-none">
+
+                                @shop.Email
+
+                            </a>
+
+                        </div>
+                    }
+
+
+                    <!-- Phone -->
+                    @if (!string.IsNullOrWhiteSpace(shop.Phone))
+                    {
+                        <div class="mb-3">
+
+                            <i class="bi bi-telephone-fill me-2"></i>
+
+                            <a href="tel:@shop.Phone"
+                               class="text-white text-decoration-none">
+
+                                @shop.Phone
+
+                            </a>
+
+                        </div>
+                    }
+
+
+                    <!-- Address -->
+                    @if (!string.IsNullOrWhiteSpace(shop.Address))
+                    {
+                        <div class="mb-2">
+
+                            <i class="bi bi-geo-alt-fill me-2"></i>
+
+                            @shop.Address
+
+                        </div>
+                    }
+
+
+                    <!-- City / Pincode -->
+                    @if (!string.IsNullOrWhiteSpace(shop.City))
+                    {
+                        <div class="ms-4">
+
+                            @shop.City
+
+                            @if (!string.IsNullOrWhiteSpace(shop.Pincode))
+                            {
+                                <span>
+                                    - @shop.Pincode
+                                </span>
+                            }
+
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+
+
+            <hr />
+
+
+            <!-- Copyright -->
+
+            <div class="text-center">
+
+                © @DateTime.Now.Year
+                @shop.ShopName.
+                All Rights Reserved.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ========================= -->
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <!-- ========================= -->
+    @if (!string.IsNullOrWhiteSpace(whatsappNumber))
+    {
+        var whatsappUrl = $"https://wa.me/{whatsappNumber}?text={whatsappMessage}";
+
+        <a href="@whatsappUrl"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Chat with us on WhatsApp"
+           title="Chat with us on WhatsApp"
+           style="
+                position:fixed;
+                bottom:20px;
+                right:20px;
+                width:60px;
+                height:60px;
+                border-radius:50%;
+                background-color:#25D366;
+                color:white;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                text-decoration:none;
+                z-index:99999;
+                box-shadow:0 4px 12px rgba(0,0,0,.3);">
+
+            <i class="bi bi-whatsapp"
+               style="font-size:32px;"></i>
+
+        </a>
+    }
+
+    <!-- ========================= -->
+    <!-- SCRIPTS -->
+    <!-- ========================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>
