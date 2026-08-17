@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Documentation/Screenshots/Banner.png" alt="Annapoorna Wholesale Gift Shop Banner" width="100%">
+  <img src="GiftShop/Documentation/Screenshots/Banner.png" alt="Annapoorna Wholesale Gift Shop Banner" width="100%">
 </p>
 
 # 🎁 Annapoorna Wholesale Gift Shop
@@ -154,7 +154,7 @@ Purchase Completed
 ### 🏠 Homepage
 
 <p align="center">
-  <img src="GiftShop/Documentation/01-home-page.png" alt="Annapoorna Wholesale Gift Shop Homepage" width="900">
+  <img src="GiftShop/Documentation/Screenshots/01-home-page.png" alt="Annapoorna Wholesale Gift Shop Homepage" width="900">
 </p>
 
 ---
@@ -170,7 +170,7 @@ Purchase Completed
 ### 📦 Product Details
 
 <p align="center">
-  <img src="Documentation/Screenshots/03-product-details.png" alt="Product Details Page" width="900">
+  <img src="GiftShop/Documentation/Screenshots/03-product-details.png" alt="Product Details Page" width="900">
 </p>
 
 ---
@@ -178,7 +178,7 @@ Purchase Completed
 ### 🛒 Shopping Cart
 
 <p align="center">
-  <img src="Documentation/Screenshots/04-shopping-cart.png" alt="Shopping Cart Page" width="900">
+  <img src="GiftShop/Documentation/Screenshots/04-shopping-cart.png" alt="Shopping Cart Page" width="900">
 </p>
 
 ---
@@ -186,7 +186,7 @@ Purchase Completed
 ### 🧾 Checkout & Reservation
 
 <p align="center">
-  <img src="Documentation/Screenshots/05-checkout-reservation.png" alt="Checkout and Reservation Page" width="900">
+  <img src="GiftShop/Documentation/Screenshots/05-checkout-reservation.png" alt="Checkout and Reservation Page" width="900">
 </p>
 
 ---
@@ -204,7 +204,7 @@ Purchase Completed
 ### 📊 Admin Dashboard
 
 <p align="center">
-  <img src="Documentation/Screenshots/07-admin-dashboard.png" alt="Admin Dashboard" width="900">
+  <img src="GiftShop/Documentation/Screenshots/07-admin-dashboard.png" alt="Admin Dashboard" width="900">
 </p>
 
 ---
@@ -212,7 +212,7 @@ Purchase Completed
 ### 📦 Admin Products
 
 <p align="center">
-  <img src="Documentation/Screenshots/08-admin-products.png" alt="Admin Products Management" width="900">
+  <img src="GiftShop/Documentation/Screenshots/08-admin-products.png" alt="Admin Products Management" width="900">
 </p>
 
 ---
@@ -220,7 +220,7 @@ Purchase Completed
 ### 🛠️ Product Management
 
 <p align="center">
-  <img src="Documentation/Screenshots/09-product-management.png" alt="Product Management" width="900">
+  <img src="GiftShop/Documentation/Screenshots/09-product-management.png" alt="Product Management" width="900">
 </p>
 
 ---
@@ -228,7 +228,7 @@ Purchase Completed
 ### 📋 Admin Orders
 
 <p align="center">
-  <img src="Documentation/Screenshots/10-admin-orders.png" alt="Admin Orders" width="900">
+  <img src="GiftShop/Documentation/Screenshots/10-admin-orders.png" alt="Admin Orders" width="900">
 </p>
 
 ---
@@ -236,7 +236,7 @@ Purchase Completed
 ### 🧾 Order Details
 
 <p align="center">
-  <img src="Documentation/Screenshots/11-order-details.png" alt="Order Details" width="900">
+  <img src="GiftShop/Documentation/Screenshots/11-order-details.png" alt="Order Details" width="900">
 </p>
 
 ---
@@ -244,7 +244,7 @@ Purchase Completed
 ### ⚙️ Admin Management
 
 <p align="center">
-  <img src="Documentation/Screenshots/12-admin-management.png" alt="Admin Management" width="900">
+  <img src="GiftShop/Documentation/Screenshots/12-admin-management.png" alt="Admin Management" width="900">
 </p>
 
 ---
@@ -252,7 +252,7 @@ Purchase Completed
 ### 🏪 Shop Settings
 
 <p align="center">
-  <img src="Documentation/Screenshots/13-shop-settings.png" alt="Shop Settings" width="900">
+  <img src="GiftShop/Documentation/Screenshots/13-shop-settings.png" alt="Shop Settings" width="900">
 </p>
 
 ---
